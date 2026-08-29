@@ -562,14 +562,14 @@ h2 {
   color: var(--gold-bright);
 }
 
-.copyright {
-  margin: 2.5rem 0 0;
+.site-footer .copyright {
+  margin: 4.5rem 0 0;
   padding-inline: 0;
   text-align: left;
   font-size: 0.8rem;
 }
 
-.credit {
+.site-footer .credit {
   margin: 0.7rem 0 0;
   padding-inline: 0;
   text-align: left;
