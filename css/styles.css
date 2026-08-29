@@ -562,8 +562,14 @@ h2 {
 }
 
 .copyright {
-  margin: 2rem 0 0;
-  text-align: center;
+  margin: 3.5rem 0 0;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.credit {
+  margin: 0.7rem 0 0;
+  text-align: left;
   font-size: 0.8rem;
 }
 
