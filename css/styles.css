@@ -1,5 +1,5 @@
 :root {
-  --bg: #050505;
+  --bg: #000000;
   --kicker: #c9a84c;
 }
 
@@ -50,19 +50,4 @@ body {
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-}
-
-.preview {
-  margin: 1.5rem 0 0;
-}
-
-.preview a {
-  color: #9a9a9a;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-}
-
-.preview a:hover {
-  color: #e8e8e8;
 }
