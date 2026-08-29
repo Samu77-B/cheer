@@ -105,46 +105,16 @@ summary:focus-visible {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  min-width: 0;
-  text-decoration: none;
-  color: inherit;
-}
-
-.brand:hover {
-  color: inherit;
-}
-
-.brand-mark {
   flex: 0 0 auto;
-  width: 3.15rem;
-  height: 3.15rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 4.35rem;
+  height: 4.35rem;
   object-fit: cover;
   object-position: left center;
-  mix-blend-mode: lighten;
-}
-
-.brand-copy {
-  display: grid;
-  min-width: 0;
-}
-
-.brand-name {
-  font-family: var(--serif);
-  font-size: 1.55rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  color: var(--olive);
-}
-
-.brand-tag {
-  display: none;
-  margin-top: 0.2rem;
-  color: var(--muted);
-  font-size: 0.62rem;
-  line-height: 1.25;
-  letter-spacing: 0.01em;
 }
 
 .nav-toggle > summary {
@@ -696,11 +666,6 @@ h2 {
 }
 
 @media (min-width: 64rem) {
-  .brand-tag {
-    display: block;
-    max-width: 16rem;
-  }
-
   .nav-toggle {
     display: none;
   }
