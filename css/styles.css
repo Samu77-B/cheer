@@ -1,0 +1,146 @@
+:root {
+  --bg: #050505;
+  --bg-soft: #101010;
+  --gold: #c9a84c;
+  --gold-bright: #e8d48b;
+  --gold-dim: #8a7430;
+  --text: #f4efe4;
+  --muted: #b8b09c;
+  --line: rgba(201, 168, 76, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201, 168, 76, 0.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem 2rem;
+  text-align: center;
+}
+
+.brand {
+  margin-bottom: 0.25rem;
+}
+
+.logo {
+  display: block;
+  width: min(22rem, 86vw);
+  height: auto;
+  margin-inline: auto;
+}
+
+.kicker {
+  margin: 0.5rem 0 0.85rem;
+  color: var(--gold-bright);
+  font-family: Cinzel, Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 38rem;
+  margin: 0 auto 1rem;
+  color: var(--gold);
+  font-family: Cinzel, Georgia, serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+.lede {
+  max-width: 32rem;
+  margin: 0 auto 1.75rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.lede strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem 1.25rem;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.15rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.pillars li {
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.pillars span {
+  color: var(--gold-bright);
+  font-family: Cinzel, Georgia, serif;
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 2.5rem;
+  color: var(--gold-dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+footer p {
+  margin: 0.2rem 0;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 560px) {
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
