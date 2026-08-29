@@ -74,7 +74,7 @@ summary:focus-visible {
 }
 
 .wrap {
-  width: 100%;
+  width: min(var(--max), 100%);
   max-width: var(--max);
   padding-inline: var(--gutter);
   margin-inline: auto;
@@ -708,7 +708,8 @@ h2 {
 
 .site-footer {
   margin-top: auto;
-  padding: 2.6rem 0 1.4rem;
+  padding-block: 2.6rem 1.4rem;
+  padding-inline: 0;
   background: var(--bg-soft);
   border-top: 1px solid var(--line);
   color: var(--muted);
@@ -733,13 +734,15 @@ h2 {
 }
 
 .copyright {
-  margin: 3.5rem 0 0;
+  margin: 2.5rem 0 0;
+  padding-inline: 0;
   text-align: left;
   font-size: 0.82rem;
 }
 
 .credit {
   margin: 0.7rem 0 0;
+  padding-inline: 0;
   text-align: left;
   font-size: 0.82rem;
 }
