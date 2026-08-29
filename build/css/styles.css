@@ -130,11 +130,13 @@ summary:focus-visible {
 .nav-toggle > summary {
   list-style: none;
   cursor: pointer;
-  padding: 0.35rem 0.85rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--gold);
-  border-radius: 999px;
+  border-radius: 0;
+  font-family: var(--sans);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
   color: var(--gold);
 }
 
@@ -161,29 +163,100 @@ summary:focus-visible {
 }
 
 .nav-toggle {
-  position: relative;
+  position: static;
 }
 
 .nav-toggle .site-nav {
-  display: none;
   position: absolute;
+  left: 0;
   right: 0;
-  top: calc(100% + 0.45rem);
-  z-index: 20;
-  min-width: 14rem;
+  top: 100%;
+  z-index: 30;
+  width: 100%;
+  display: none;
   flex-direction: column;
   gap: 0;
-  padding: 0.45rem;
+  margin: 0;
+  padding: 0.85rem var(--gutter) 1.15rem;
   background: var(--bg-card);
-  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-toggle[open] .site-nav {
   display: flex;
+  animation: nav-open 0.32s ease;
 }
 
 .nav-toggle .site-nav a {
-  padding: 0.5rem 0.65rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-toggle .site-nav a:last-child {
+  border-bottom: 0;
+}
+
+@keyframes nav-open {
+  from {
+    opacity: 0;
+    transform: translateY(-0.65rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports selector(::details-content) {
+  .nav-toggle {
+    interpolate-size: allow-keywords;
+  }
+
+  .nav-toggle::details-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 30;
+    width: 100%;
+    display: block;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--line);
+    overflow: clip;
+    height: 0;
+    opacity: 0;
+    transition:
+      height 0.35s ease,
+      opacity 0.28s ease,
+      content-visibility 0.35s allow-discrete;
+  }
+
+  .nav-toggle[open]::details-content {
+    height: auto;
+    opacity: 1;
+  }
+
+  @starting-style {
+    .nav-toggle[open]::details-content {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  .nav-toggle .site-nav {
+    position: static;
+    display: flex;
+    width: auto;
+    padding: 0.85rem var(--gutter) 1.15rem;
+    background: transparent;
+    border: 0;
+    animation: none;
+  }
+
+  .nav-toggle[open] .site-nav {
+    animation: none;
+  }
 }
 
 .nav-desktop,
@@ -830,6 +903,12 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .nav-toggle[open] .site-nav,
+  .nav-toggle::details-content {
+    animation: none;
+    transition: none;
   }
 
   .hero-cinematic video {
