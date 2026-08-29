@@ -40,9 +40,11 @@ body {
 
 .logo {
   display: block;
-  width: min(27.5rem, 92vw);
-  height: auto;
+  width: min(18rem, 70vw);
+  height: min(18rem, 70vw);
   margin-inline: auto;
+  object-fit: cover;
+  object-position: left center;
   mix-blend-mode: lighten;
 }
 

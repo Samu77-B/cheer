@@ -120,7 +120,7 @@ summary:focus-visible {
   width: 3.15rem;
   height: 3.15rem;
   object-fit: cover;
-  object-position: 50% 12%;
+  object-position: left center;
   border-radius: 50%;
   background: #111;
 }
