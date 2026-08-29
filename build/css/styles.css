@@ -17,7 +17,7 @@
   --serif: "Fraunces", "Georgia", serif;
   --sans: "Source Sans 3", "Segoe UI", sans-serif;
   --script: "Caveat", cursive;
-  --wrap: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.75rem);
   --radius: 1.15rem;
 }
 
@@ -79,8 +79,10 @@ summary:focus-visible {
 }
 
 .wrap {
-  width: min(var(--wrap), calc(100% - 2.25rem));
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  padding-inline: var(--gutter);
+  margin-inline: 0;
 }
 
 .site-header {
@@ -274,7 +276,7 @@ h2 {
 }
 
 .lede {
-  max-width: 34rem;
+  max-width: 42rem;
   margin: 0 0 1.4rem;
   color: var(--muted);
   font-size: 1.08rem;
@@ -282,7 +284,7 @@ h2 {
 
 .collage {
   position: relative;
-  min-height: 22rem;
+  min-height: clamp(18rem, 52vw, 32rem);
 }
 
 .blob {
@@ -651,10 +653,53 @@ h2 {
   font-size: 0.85rem;
 }
 
+@media (min-width: 40rem) {
+  .impact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .impact-grid > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .involve-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-dl {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 52rem) {
+  .hero-grid {
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(18rem, 1.1fr);
+    gap: clamp(1.25rem, 3vw, 3rem);
+    align-items: center;
+  }
+
+  .hand-note {
+    position: absolute;
+    right: 4%;
+    bottom: 8%;
+    margin: 0;
+  }
+
+  .sabula-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
 @media (min-width: 64rem) {
   .brand-tag {
     display: block;
-    max-width: 14rem;
+    max-width: 16rem;
   }
 
   .nav-toggle {
@@ -667,35 +712,34 @@ h2 {
   }
 
   .header-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: 1.25rem;
   }
 
-  .hero-grid {
-    grid-template-columns: 1fr 1.05fr;
-    gap: 1.5rem;
-  }
-
-  .hand-note {
-    position: absolute;
-    right: 0;
-    bottom: 1.5rem;
-    margin: 0;
+  .nav-desktop {
+    justify-content: center;
   }
 
   .impact-grid {
-    grid-template-columns: 0.9fr repeat(4, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: minmax(12rem, 1.1fr) repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
     align-items: start;
   }
 
+  .impact-grid > :first-child {
+    grid-column: auto;
+  }
+
   .sabula-grid {
-    grid-template-columns: 0.7fr 1.1fr 0.85fr 1fr;
-    gap: 1.4rem;
+    grid-template-columns: 0.7fr 1.15fr 0.85fr 1fr;
+    gap: clamp(1rem, 2.5vw, 2.25rem);
   }
 
   .involve-head {
     display: grid;
-    grid-template-columns: 0.7fr 1fr;
+    grid-template-columns: minmax(12rem, 0.7fr) 1fr;
     gap: 2rem;
     align-items: end;
     margin-bottom: 1.25rem;
@@ -707,10 +751,6 @@ h2 {
 
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-
-  .contact-dl {
-    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
   }
 }
