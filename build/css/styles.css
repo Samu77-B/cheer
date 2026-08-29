@@ -99,7 +99,7 @@ summary:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 0;
+  padding-block: 0.7rem;
 }
 
 .brand {
@@ -121,8 +121,7 @@ summary:focus-visible {
   height: 3.15rem;
   object-fit: cover;
   object-position: left center;
-  border-radius: 50%;
-  background: #111;
+  mix-blend-mode: lighten;
 }
 
 .brand-copy {
