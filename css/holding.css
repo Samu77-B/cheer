@@ -1,0 +1,68 @@
+:root {
+  --bg: #000000;
+  --kicker: #c9a84c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--kicker);
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+.brand {
+  margin-bottom: 0.5rem;
+}
+
+.logo {
+  display: block;
+  width: min(22rem, 86vw);
+  height: auto;
+  margin-inline: auto;
+}
+
+.kicker {
+  margin: 0.75rem 0 0;
+  color: var(--kicker);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.credit {
+  margin: 2.5rem 0 0;
+  color: #8a7430;
+  font-size: 0.8rem;
+}
+
+.credit a {
+  color: var(--kicker);
+  text-decoration: none;
+}
+
+.credit a:hover {
+  color: #e8d48b;
+}
