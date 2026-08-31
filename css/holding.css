@@ -43,8 +43,17 @@ body {
   margin-inline: auto;
 }
 
+.meaning {
+  margin: 0.75rem auto 0;
+  max-width: 26rem;
+  color: var(--kicker);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
 .kicker {
-  margin: 0.75rem 0 0;
+  margin: 1.25rem 0 0;
   color: var(--kicker);
   font-size: 0.85rem;
   font-weight: 600;
