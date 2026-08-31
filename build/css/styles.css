@@ -643,9 +643,25 @@ h2 {
 }
 
 .page-banner--eyes img {
-  object-position: 50% 40%;
-  transform: scale(1.45);
-  transform-origin: 50% 38%;
+  object-position: 50% 18%;
+  transform: scale(1.28) translateY(12%);
+  transform-origin: 50% 16%;
+}
+
+@media (min-width: 800px) {
+  .page-banner--eyes img {
+    object-position: 50% 14%;
+    transform: scale(1.22) translateY(16%);
+    transform-origin: 50% 12%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-banner--eyes img {
+    object-position: 50% 12%;
+    transform: scale(1.16) translateY(18%);
+    transform-origin: 50% 10%;
+  }
 }
 
 .page-banner::after {
