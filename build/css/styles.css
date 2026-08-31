@@ -880,9 +880,12 @@ h2 {
   .feature-grid,
   .involve-grid,
   .footer-grid,
-  .contact-dl,
   .stats-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .media-band {
