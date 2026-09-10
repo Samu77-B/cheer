@@ -676,6 +676,16 @@ h2 {
   color: var(--text);
 }
 
+.page-hero {
+  padding: 3.5rem 0 1.5rem;
+}
+
+.page-hero h1 {
+  margin: 0 0 1rem;
+  max-width: 20ch;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
 .section {
   padding: 3rem 0 4.5rem;
 }
@@ -888,8 +898,52 @@ h2 {
   margin: 0;
 }
 
-.site-footer .copyright {
+.legal-doc h2 {
+  margin: 2rem 0 0.75rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+
+.legal-doc h2:first-of-type {
+  margin-top: 1.25rem;
+}
+
+.legal-doc p,
+.legal-doc ul {
+  margin: 0 0 1rem;
+}
+
+.legal-doc ul {
+  padding-left: 1.35rem;
+}
+
+.legal-doc li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-updated {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.legal-links {
   margin: 4.5rem 0 0;
+  font-size: 0.82rem;
+}
+
+.legal-links a {
+  color: var(--muted);
+}
+
+.legal-links a:hover,
+.legal-links a[aria-current="page"] {
+  color: var(--gold);
+}
+
+.site-footer .copyright {
+  margin: 1rem 0 0;
   padding-inline: 0;
   text-align: left;
   font-size: 0.82rem;

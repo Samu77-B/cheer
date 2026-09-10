@@ -75,3 +75,18 @@ body {
 .credit a:hover {
   color: #e8d48b;
 }
+
+.holding-legal {
+  margin: 1.25rem 0 0;
+  color: #8a7430;
+  font-size: 0.78rem;
+}
+
+.holding-legal a {
+  color: #8a7430;
+  text-decoration: none;
+}
+
+.holding-legal a:hover {
+  color: var(--kicker);
+}
