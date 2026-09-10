@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /build/
+
+Sitemap: https://cheerorganisationltd.com/sitemap.xml
