@@ -67,6 +67,20 @@
     }
   }
 
+  // Sanity serves originals; ask the CDN for a web-sized version instead
+  function cdnImage(url, width) {
+    if (!url) return "";
+    if (url.indexOf("cdn.sanity.io") === -1) return url;
+    return url + "?w=" + width + "&auto=format&fit=max";
+  }
+
+  function swapImage(el, picture, width) {
+    if (!el || !picture || !picture.url) return;
+    el.setAttribute("src", cdnImage(picture.url, width));
+    el.removeAttribute("srcset");
+    if (picture.alt) el.setAttribute("alt", picture.alt);
+  }
+
   function applyHome(home) {
     if (!home) return;
     text(document.querySelector("[data-cms='home.heroLede']"), home.heroLede);
@@ -79,6 +93,90 @@
           return "<p>" + escapeHtml(p) + "</p>";
         })
         .join("");
+    }
+
+    var panels = [
+      ["home.panelCommunity", home.panelCommunity],
+      ["home.panelHealth", home.panelHealth],
+      ["home.panelEducation", home.panelEducation],
+      ["home.panelEmpowerment", home.panelEmpowerment],
+      ["home.panelSabula", home.panelSabula],
+      ["home.featureEvents", home.featureEvents],
+      ["home.featureSabula", home.featureSabula],
+    ];
+    panels.forEach(function (entry) {
+      swapImage(document.querySelector("[data-cms='" + entry[0] + "'] img"), entry[1], 1200);
+    });
+
+    var photoHost = document.querySelector("[data-cms='home.aboutPhotos']");
+    if (photoHost && home.aboutPhotos && home.aboutPhotos.length) {
+      photoHost.innerHTML = home.aboutPhotos
+        .map(function (photo) {
+          var img =
+            '<img src="' +
+            escapeHtml(cdnImage(photo.url, 900)) +
+            '" alt="' +
+            escapeHtml(photo.alt || "") +
+            '">';
+          var caption = photo.caption
+            ? "<figcaption>" + escapeHtml(photo.caption) + "</figcaption>"
+            : "";
+          return "<figure>" + img + caption + "</figure>";
+        })
+        .join("");
+    }
+  }
+
+  function blockHtml(block) {
+    if (!block || !block.kind) return "";
+    if (block.kind === "heading") {
+      return block.text ? "<h2>" + escapeHtml(block.text) + "</h2>" : "";
+    }
+    if (block.kind === "numbered" || block.kind === "bullets") {
+      var items = (block.items || "")
+        .split("\n")
+        .map(function (line) {
+          return line.trim();
+        })
+        .filter(Boolean);
+      if (!items.length) return "";
+      var tag = block.kind === "numbered" ? "ol" : "ul";
+      return (
+        "<" +
+        tag +
+        ">" +
+        items
+          .map(function (item) {
+            return "<li>" + escapeHtml(item) + "</li>";
+          })
+          .join("") +
+        "</" +
+        tag +
+        ">"
+      );
+    }
+    return block.text ? "<p>" + escapeHtml(block.text) + "</p>" : "";
+  }
+
+  function applyPage(pages) {
+    var slug = document.body.getAttribute("data-page");
+    if (!slug || !pages) return;
+    var doc = pages[slug];
+    if (!doc) return;
+
+    text(document.querySelector("[data-cms='page.eyebrow']"), doc.eyebrow);
+    text(document.querySelector("[data-cms='page.heading']"), doc.heading);
+    text(document.querySelector("[data-cms='page.lede']"), doc.lede);
+
+    var banner = document.querySelector("[data-cms='page.banner'] img");
+    if (banner && doc.bannerUrl) {
+      swapImage(banner, { url: doc.bannerUrl, alt: doc.bannerAlt }, 1600);
+    }
+
+    var bodyHost = document.querySelector("[data-cms='page.body']");
+    if (bodyHost && doc.bodyBlocks && doc.bodyBlocks.length) {
+      var html = doc.bodyBlocks.map(blockHtml).join("");
+      if (html) bodyHost.innerHTML = html;
     }
   }
 
@@ -113,11 +211,9 @@
       return res.json();
     })
     .then(function (data) {
-      if (!data.siteSettings && !data.homePage && !(data.announcements || []).length) {
-        return;
-      }
       applySettings(data.siteSettings);
       applyHome(data.homePage);
+      applyPage(data.pages);
       renderAnnouncement(data);
     })
     .catch(function () {

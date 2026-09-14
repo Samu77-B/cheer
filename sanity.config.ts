@@ -26,6 +26,7 @@ export default defineConfig({
               .id('homePage')
               .child(S.document().schemaType('homePage').documentId('homePage')),
             S.divider(),
+            S.documentTypeListItem('page').title('Pages'),
             S.documentTypeListItem('announcement').title('Announcements'),
           ]),
     }),

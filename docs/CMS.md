@@ -42,13 +42,27 @@ In Sanity: **API → Webhooks** → add a webhook that hits your host’s deploy
 
 ## What the client can edit today
 
-| Studio section   | Where it appears on the site                          |
-|------------------|--------------------------------------------------------|
-| Site settings    | Footer contact, safeguarding, charity line, social    |
-| Home page        | Hero lede, about copy, impact note, join section      |
-| Announcements    | Banner above the header (first active announcement)   |
+| Studio section   | Where it appears on the site                                            |
+|------------------|-------------------------------------------------------------------------|
+| Site settings    | Footer contact, safeguarding, charity line, social                      |
+| Home page        | Hero lede, about copy, impact note, join section, and every home image  |
+| Pages            | One document per page: banner image, eyebrow, H1, intro paragraph       |
+| Announcements    | Banner above the header (first active announcement)                     |
 
-Events stay on **UrNextEvent** (`events.html` embed). Programme page copy can be added to the schema in a later phase.
+Events listings stay on **UrNextEvent** (`events.html` embed).
+
+### Images
+
+Upload in the studio and the site swaps them in; leave a field empty and the image already in the HTML stays. Uploads are served from Sanity's CDN, resized via `?w=` in `js/cms-content.js`.
+
+The four stock placeholders on the home page (Community, Health, Educational entertainment, Empowerment) and the Get involved banner are the ones to replace first.
+
+### Editing limits worth knowing
+
+- **About section photos** and **Main page text** are lists: whatever is in Sanity replaces the whole block, so it is all-or-nothing rather than appending to what the HTML shows.
+- **Main page text** only appears for Terms and Privacy. The other pages have bespoke layouts (cards, grids, numbered purposes) that generic blocks cannot reproduce, so their body copy still lives in the HTML.
+- The **Contact** intro keeps its email and phone links from the HTML, so it is not editable as plain text.
+- Text arrives via JavaScript, so search engines index the HTML wording. Fine for contact details; if page body copy becomes SEO-critical, change the sync to write values into the HTML files instead.
 
 ## Alternatives considered
 

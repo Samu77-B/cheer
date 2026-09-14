@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-14T21:47:30.612Z",
+  "syncedAt": "2026-09-14T22:31:16.992Z",
   "siteSettings": {
     "charityRegistration": "CHEER Organisation Ltd. Charity registration details TBC.",
     "contactEmail": "hello@cheerorganisationltd.com",
@@ -19,9 +19,83 @@
       "We create public-benefit programmes that inform, inspire and bring people together — especially where isolation, limited opportunity or poor wellbeing get in the way.",
       "My Band Sabula is our community arts project: outreach, education, mentoring and live performance for people of all ages."
     ],
+    "aboutPhotos": null,
+    "featureEvents": null,
+    "featureSabula": null,
     "heroLede": "Inclusive arts, music and community programmes that improve education, wellbeing and social connection, with My Band Sabula.",
     "impactNote": "Concert photographs and film on this page are from CHEER. Other images are still placeholders until more of the charity's own media is ready.",
-    "joinBlurb": "CHEER grows through volunteering, participation and partners. Help us bring people together through arts, music and community programmes."
+    "joinBlurb": "CHEER grows through volunteering, participation and partners. Help us bring people together through arts, music and community programmes.",
+    "panelCommunity": null,
+    "panelEducation": null,
+    "panelEmpowerment": null,
+    "panelHealth": null,
+    "panelSabula": null
+  },
+  "pages": {
+    "about": {
+      "bannerAlt": "CHEER community concert",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "About us",
+      "heading": "CHEER Organisation Ltd",
+      "lede": "The charity’s purposes, for the public benefit, are:"
+    },
+    "activities": {
+      "bannerAlt": "CHEER concert",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "What we do",
+      "heading": "Programmes",
+      "lede": "CHEER and its community arts project, My Band Sabula, will deliver a range of community-based programmes."
+    },
+    "contact": {
+      "bannerAlt": "Close-up of a young Black woman's eyes",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Contact",
+      "heading": "Get in touch",
+      "lede": null
+    },
+    "events": {
+      "bannerAlt": "My Band Sabula performing live",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Tickets",
+      "heading": "Events",
+      "lede": "Buy tickets for upcoming CHEER and My Band Sabula concerts. Checkout is handled securely by UrNextEvent."
+    },
+    "get-involved": {
+      "bannerAlt": "Volunteers working together",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Join our mission",
+      "heading": "Get involved",
+      "lede": null
+    },
+    "privacy": {
+      "bannerAlt": null,
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Legal",
+      "heading": "Privacy policy",
+      "lede": "How we handle personal information when you use this website, contact CHEER, or buy event tickets."
+    },
+    "sabula": {
+      "bannerAlt": "My Band Sabula live performance",
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Community arts",
+      "heading": "My Band Sabula",
+      "lede": "My Band Sabula operates under CHEER as a community arts initiative supporting outreach, education, mentoring, and engagement activities for public benefit."
+    },
+    "terms": {
+      "bannerAlt": null,
+      "bannerUrl": null,
+      "bodyBlocks": null,
+      "eyebrow": "Legal",
+      "heading": "Terms and conditions",
+      "lede": "Please read these terms before using the CHEER Organisation Ltd website."
+    }
   },
   "announcements": []
 }

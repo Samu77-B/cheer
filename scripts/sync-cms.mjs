@@ -29,6 +29,9 @@ const client = createClient({
   token: token || undefined,
 });
 
+// Resolves an uploaded image to a CDN url the site can use directly
+const IMAGE = `{ "url": image.asset->url, alt }`;
+
 const query = `{
   "siteSettings": *[_type == "siteSettings"][0]{
     contactEmail,
@@ -48,7 +51,24 @@ const query = `{
     heroLede,
     aboutParagraphs,
     impactNote,
-    joinBlurb
+    joinBlurb,
+    aboutPhotos[]{ "url": image.asset->url, alt, caption },
+    panelCommunity ${IMAGE},
+    panelHealth ${IMAGE},
+    panelEducation ${IMAGE},
+    panelEmpowerment ${IMAGE},
+    panelSabula ${IMAGE},
+    featureEvents ${IMAGE},
+    featureSabula ${IMAGE}
+  },
+  "pages": *[_type == "page" && defined(slug)]{
+    slug,
+    "bannerUrl": bannerImage.asset->url,
+    bannerAlt,
+    eyebrow,
+    heading,
+    lede,
+    bodyBlocks[]{ kind, text, items }
   },
   "announcements": *[_type == "announcement" && active == true] | order(_createdAt desc){
     title,
@@ -83,12 +103,39 @@ const announcements = (data.announcements || []).filter((item) => {
   return true;
 });
 
-const payload = trimStrings({
-  syncedAt: new Date().toISOString(),
-  siteSettings: data.siteSettings,
-  homePage: data.homePage,
-  announcements,
-});
+// An image field with nothing uploaded yet would otherwise blank the page image
+function dropEmptyImages(value) {
+  if (Array.isArray(value)) {
+    return value.filter((item) => !isEmptyImage(item)).map(dropEmptyImages);
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, val]) => !isEmptyImage(val))
+        .map(([key, val]) => [key, dropEmptyImages(val)])
+    );
+  }
+  return value;
+}
+
+function isEmptyImage(value) {
+  return Boolean(value && typeof value === "object" && "url" in value && !value.url);
+}
+
+const pages = {};
+for (const { slug, ...fields } of data.pages || []) {
+  pages[slug] = fields;
+}
+
+const payload = dropEmptyImages(
+  trimStrings({
+    syncedAt: new Date().toISOString(),
+    siteSettings: data.siteSettings,
+    homePage: data.homePage,
+    pages,
+    announcements,
+  })
+);
 
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, JSON.stringify(payload, null, 2) + "\n", "utf8");
