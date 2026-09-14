@@ -1,6 +1,19 @@
 {
-  "syncedAt": "2026-09-14T20:55:53.524Z",
-  "siteSettings": null,
+  "syncedAt": "2026-09-14T21:04:12.160Z",
+  "siteSettings": {
+    "charityRegistration": null,
+    "contactEmail": "hello@cheerorganisationltd.com",
+    "facebookUrl": null,
+    "instagramUrl": null,
+    "linkedinUrl": null,
+    "phoneLandline": "020 3733 2390",
+    "phoneLandlineTel": "+442037332390",
+    "phoneMobile": "+44 (0)74 0599 2600",
+    "phoneMobileTel": "+447405992600",
+    "safeguardingBlurb": null,
+    "socialBlurb": null,
+    "youtubeUrl": null
+  },
   "homePage": null,
   "announcements": []
 }

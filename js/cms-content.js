@@ -5,32 +5,31 @@
     if (el && value) el.textContent = value;
   }
 
+  // Fall back to the digits of the display number when no tel: value is set,
+  // so a half-filled pair still renders a working link
+  function telHref(display, tel) {
+    var value = tel || display || "";
+    value = value.replace(/[^\d+]/g, "");
+    return value.indexOf("+") > 0 ? value.replace(/\+/g, "") : value;
+  }
+
+  function phoneLink(display, tel) {
+    return '<a href="tel:' + telHref(display, tel) + '">' + escapeHtml(display) + "</a>";
+  }
+
   function htmlContactBlock(container, settings) {
     if (!container || !settings || !settings.contactEmail) return;
-    var email = settings.contactEmail;
-    var parts = [
-      "Email: ",
-      '<a href="mailto:' + email + '">' + email + "</a>",
-    ];
-    if (settings.phoneLandline && settings.phoneLandlineTel) {
-      parts.push(
-        "<br>Phone: ",
-        '<a href="tel:' +
-          settings.phoneLandlineTel +
-          '">' +
-          settings.phoneLandline +
-          "</a>"
-      );
+    var email = escapeHtml(settings.contactEmail);
+    var parts = ["Email: ", '<a href="mailto:' + email + '">' + email + "</a>"];
+    var phones = [];
+    if (settings.phoneLandline) {
+      phones.push(phoneLink(settings.phoneLandline, settings.phoneLandlineTel));
     }
-    if (settings.phoneMobile && settings.phoneMobileTel) {
-      parts.push(
-        ", ",
-        '<a href="tel:' +
-          settings.phoneMobileTel +
-          '">' +
-          settings.phoneMobile +
-          "</a>"
-      );
+    if (settings.phoneMobile) {
+      phones.push(phoneLink(settings.phoneMobile, settings.phoneMobileTel));
+    }
+    if (phones.length) {
+      parts.push("<br>Phone: ", phones.join(", "));
     }
     parts.push('<br><a href="/contact.html">Contact page</a>');
     container.innerHTML = parts.join("");

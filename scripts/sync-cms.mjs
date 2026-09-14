@@ -62,6 +62,18 @@ const query = `{
 
 const data = await client.fetch(query);
 
+// Editors often leave stray spaces when pasting into the studio
+function trimStrings(value) {
+  if (typeof value === "string") return value.trim();
+  if (Array.isArray(value)) return value.map(trimStrings);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, val]) => [key, trimStrings(val)])
+    );
+  }
+  return value;
+}
+
 const now = new Date();
 const announcements = (data.announcements || []).filter((item) => {
   const start = item.startDate ? new Date(item.startDate) : null;
@@ -71,12 +83,12 @@ const announcements = (data.announcements || []).filter((item) => {
   return true;
 });
 
-const payload = {
+const payload = trimStrings({
   syncedAt: new Date().toISOString(),
   siteSettings: data.siteSettings,
   homePage: data.homePage,
   announcements,
-};
+});
 
 mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, JSON.stringify(payload, null, 2) + "\n", "utf8");
