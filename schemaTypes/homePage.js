@@ -30,4 +30,10 @@ export const homePage = defineType({
       rows: 3,
     }),
   ],
+  // Without this, the singleton has no title field and Sanity lists every value instead
+  preview: {
+    prepare() {
+      return { title: "Home page" };
+    },
+  },
 });

@@ -70,4 +70,9 @@ export const siteSettings = defineType({
       type: "url",
     }),
   ],
+  preview: {
+    prepare() {
+      return { title: "Site settings" };
+    },
+  },
 });
