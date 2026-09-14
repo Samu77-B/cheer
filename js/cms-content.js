@@ -178,6 +178,19 @@
       var html = doc.bodyBlocks.map(blockHtml).join("");
       if (html) bodyHost.innerHTML = html;
     }
+
+    var cards = [
+      "cardArts",
+      "cardYouth",
+      "cardConcerts",
+      "cardWellbeing",
+      "cardIntergenerational",
+      "cardTraining",
+    ];
+    cards.forEach(function (name) {
+      var el = document.querySelector("[data-cms='page." + name + "'] img");
+      swapImage(el, doc[name], 900);
+    });
   }
 
   function escapeHtml(str) {

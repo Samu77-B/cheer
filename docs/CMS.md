@@ -47,6 +47,7 @@ In Sanity: **API → Webhooks** → add a webhook that hits your host’s deploy
 | Site settings    | Footer contact, safeguarding, charity line, social                      |
 | Home page        | Hero lede, about copy, impact note, join section, and every home image  |
 | Pages            | One document per page: banner image, eyebrow, H1, intro paragraph       |
+| Pages → Programmes | Also the six programme card images                                    |
 | Announcements    | Banner above the header (first active announcement)                     |
 
 Events listings stay on **UrNextEvent** (`events.html` embed).

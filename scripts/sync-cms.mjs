@@ -68,7 +68,13 @@ const query = `{
     eyebrow,
     heading,
     lede,
-    bodyBlocks[]{ kind, text, items }
+    bodyBlocks[]{ kind, text, items },
+    cardArts ${IMAGE},
+    cardYouth ${IMAGE},
+    cardConcerts ${IMAGE},
+    cardWellbeing ${IMAGE},
+    cardIntergenerational ${IMAGE},
+    cardTraining ${IMAGE}
   },
   "announcements": *[_type == "announcement" && active == true] | order(_createdAt desc){
     title,
