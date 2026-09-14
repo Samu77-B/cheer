@@ -4,8 +4,8 @@ The live site stays **static HTML** for speed and SEO. Sanity gives the client a
 
 ## One-time setup
 
-1. Create a free Sanity project at [sanity.io/manage](https://sanity.io/manage).
-2. Copy `.env.example` to `.env` and set `SANITY_STUDIO_PROJECT_ID` and `SANITY_PROJECT_ID` to your project ID (same value).
+1. In [sanity.io/manage](https://sanity.io/manage), under **Paul Banning** (or your agency org), create a **new project** (e.g. “CHEER Website”). Add a **`production`** dataset. Copy the **Project ID** — do **not** run `npm create sanity@latest` in this repo; the studio is already here.
+2. Copy `.env.example` to `.env` and set `SANITY_STUDIO_PROJECT_ID` and `SANITY_PROJECT_ID` to that project ID (same value).
 3. Install and open the studio:
 
    ```bash

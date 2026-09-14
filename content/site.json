@@ -1,19 +1,6 @@
 {
-  "syncedAt": "2026-09-14T18:58:57.500Z",
-  "siteSettings": {
-    "charityRegistration": null,
-    "contactEmail": "hello@cheerorganisationltd.com ",
-    "facebookUrl": null,
-    "instagramUrl": null,
-    "linkedinUrl": null,
-    "phoneLandline": "+442037332390",
-    "phoneLandlineTel": null,
-    "phoneMobile": null,
-    "phoneMobileTel": null,
-    "safeguardingBlurb": null,
-    "socialBlurb": null,
-    "youtubeUrl": null
-  },
+  "syncedAt": "2026-09-14T20:17:13.624Z",
+  "siteSettings": null,
   "homePage": null,
   "announcements": []
 }

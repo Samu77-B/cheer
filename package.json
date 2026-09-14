@@ -5,7 +5,7 @@
   "scripts": {
     "studio": "sanity dev",
     "studio:build": "sanity build",
-    "studio:deploy": "sanity deploy",
+    "studio:deploy": "sanity deploy -y",
     "cms:sync": "node scripts/sync-cms.mjs"
   },
   "dependencies": {
