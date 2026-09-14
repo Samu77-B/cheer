@@ -40,8 +40,19 @@ function cardImage(name, title) {
         options: { hotspot: true },
         description: "Leave empty to keep the image currently on the page.",
       }),
-      defineField({ name: "alt", title: "Image description", type: "string" }),
+      defineField({
+        name: "alt",
+        title: "Image description",
+        type: "string",
+        description: "What the photo shows, for screen readers and search engines.",
+      }),
     ],
+    validation: (Rule) =>
+      Rule.custom((value) =>
+        value?.image && !value?.alt
+          ? "Add an image description so the photo is accessible"
+          : true
+      ).warning(),
   });
 }
 

@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-14T22:49:34.807Z",
+  "syncedAt": "2026-09-14T23:12:36.880Z",
   "siteSettings": {
     "charityRegistration": "CHEER Organisation Ltd. Charity registration details TBC.",
     "contactEmail": "hello@cheerorganisationltd.com",
@@ -52,7 +52,10 @@
       "bodyBlocks": null,
       "cardArts": null,
       "cardConcerts": null,
-      "cardIntergenerational": null,
+      "cardIntergenerational": {
+        "alt": null,
+        "url": "https://cdn.sanity.io/images/o33eg4mx/production/56ab24fd749c8d4e21a0e065854d07c6a3a422ba-996x538.png"
+      },
       "cardTraining": null,
       "cardWellbeing": null,
       "cardYouth": null,

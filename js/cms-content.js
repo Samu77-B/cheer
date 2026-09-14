@@ -78,7 +78,9 @@
     if (!el || !picture || !picture.url) return;
     el.setAttribute("src", cdnImage(picture.url, width));
     el.removeAttribute("srcset");
-    if (picture.alt) el.setAttribute("alt", picture.alt);
+    // The old alt described the old image, so never keep it for a new one.
+    // An empty alt is correct here: each image sits beside its own heading.
+    el.setAttribute("alt", picture.alt || "");
   }
 
   function applyHome(home) {
