@@ -1039,6 +1039,26 @@ h2 {
   }
 }
 
+.cms-announcement {
+  background: var(--gold, #c9a227);
+  color: #000;
+  font-size: 0.95rem;
+  padding: 0.65rem 0;
+}
+
+.cms-announcement-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+}
+
+.cms-announcement-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
