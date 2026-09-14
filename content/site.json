@@ -1,7 +1,7 @@
 {
-  "syncedAt": "2026-09-14T21:04:12.160Z",
+  "syncedAt": "2026-09-14T21:47:30.612Z",
   "siteSettings": {
-    "charityRegistration": null,
+    "charityRegistration": "CHEER Organisation Ltd. Charity registration details TBC.",
     "contactEmail": "hello@cheerorganisationltd.com",
     "facebookUrl": null,
     "instagramUrl": null,
@@ -10,10 +10,18 @@
     "phoneLandlineTel": "+442037332390",
     "phoneMobile": "+44 (0)74 0599 2600",
     "phoneMobileTel": "+447405992600",
-    "safeguardingBlurb": null,
-    "socialBlurb": null,
+    "safeguardingBlurb": "We aim to create safe, inclusive spaces. A full safeguarding policy will be published here when the charity confirms it.",
+    "socialBlurb": "Facebook, Instagram, YouTube, and LinkedIn — TBC.",
     "youtubeUrl": null
   },
-  "homePage": null,
+  "homePage": {
+    "aboutParagraphs": [
+      "We create public-benefit programmes that inform, inspire and bring people together — especially where isolation, limited opportunity or poor wellbeing get in the way.",
+      "My Band Sabula is our community arts project: outreach, education, mentoring and live performance for people of all ages."
+    ],
+    "heroLede": "Inclusive arts, music and community programmes that improve education, wellbeing and social connection, with My Band Sabula.",
+    "impactNote": "Concert photographs and film on this page are from CHEER. Other images are still placeholders until more of the charity's own media is ready.",
+    "joinBlurb": "CHEER grows through volunteering, participation and partners. Help us bring people together through arts, music and community programmes."
+  },
   "announcements": []
 }

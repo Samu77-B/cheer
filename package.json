@@ -6,7 +6,8 @@
     "studio": "sanity dev",
     "studio:build": "sanity build",
     "studio:deploy": "sanity deploy -y",
-    "cms:sync": "node scripts/sync-cms.mjs"
+    "cms:sync": "node scripts/sync-cms.mjs",
+    "cms:seed": "node scripts/seed-sanity.mjs"
   },
   "dependencies": {
     "@sanity/client": "^7.6.0",
